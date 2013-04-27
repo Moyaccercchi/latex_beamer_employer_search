@@ -1,10 +1,19 @@
 \documentclass[12pt]{beamer}
+\usepackage{datetime}
+
 \title[Employer Search and Screening in an Online Labor Market]{Employer Search and\\Screening in an Online\\Labor Market}
 \author{John J. Horton}
 \institute{oDesk Research}
 
+\setbeamercolor{footlinecolor}{fg=black,bg=white}
+
 \setbeamertemplate{footline}{%
-\insertshortdate\hfill\insertshortauthor}
+  \begin{beamercolorbox}[sep=1mm,wd=\paperwidth,leftskip=1mm,rightskip=1mm]{footlinecolor}
+    \hspace{1mm}%
+    \tiny{\insertdate}
+    \hfill
+  \end{beamercolorbox}%
+}
 
 %gets rid of navigation symbols
 \setbeamertemplate{navigation symbols}{}
@@ -12,6 +21,9 @@
 \setbeamercolor{background canvas}{bg=black,fg=white}
 \usebeamercolor[fg]{background canvas}
 
+\newcommand*\ouritem{%
+\item[\color{white}\scalebox{0.9}{\textbullet}]}
+\setbeamercolor{itemize item}{fg=white}
 \setbeamercolor{frametitle}{fg=white}
 \setbeamercolor{normal text}{fg=white}
 \setbeamercolor{alerted text}{fg=white}
@@ -35,7 +47,7 @@ Labor Market
 
 \vspace{3mm}
 
-\Large
+\large
 John J. Horton\\
 oDesk Research
 \end{center}
@@ -46,6 +58,24 @@ oDesk Research
 Matching markets have
 
 search screening costs
+\end{center}
+\end{frame}
+
+\begin{frame}{}
+\Large
+\begin{itemize}
+\ouritem What \emph{are} my options?
+
+\ouritem \emph{How good} is each option for me?
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\begin{center}
+\Large
+\begin{figure}[H] \centering \includegraphics[width=50mm]{people100.jpg} \end{figure}
+
+100 people
 \end{center}
 \end{frame}
 
