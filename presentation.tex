@@ -1,11 +1,11 @@
 \documentclass[12pt]{beamer}
 \usepackage{datetime}
+\usepackage{animate}
+\usetheme{Berlin}
 
 \title[Employer Search and Screening in an Online Labor Market]{Employer Search and\\Screening in an Online\\Labor Market}
 \author{John J. Horton}
 \institute{oDesk Research}
-
-\setbeamercolor{footlinecolor}{fg=black,bg=white}
 
 \setbeamertemplate{footline}{%
   \begin{beamercolorbox}[sep=1mm,wd=\paperwidth,leftskip=1mm,rightskip=1mm]{footlinecolor}
@@ -18,21 +18,8 @@
 %gets rid of navigation symbols
 \setbeamertemplate{navigation symbols}{}
 
-\setbeamercolor{background canvas}{bg=black,fg=white}
-\usebeamercolor[fg]{background canvas}
-
 \newcommand*\ouritem{%
-\item[\color{white}\scalebox{0.9}{\textbullet}]}
-\setbeamercolor{itemize item}{fg=white}
-\setbeamercolor{frametitle}{fg=white}
-\setbeamercolor{normal text}{fg=white}
-\setbeamercolor{alerted text}{fg=white}
-\setbeamercolor{example text}{fg=white}
-\setbeamercolor{structure}{fg=black}
-
-\setbeamercolor{author}{fg=white}
-\setbeamercolor{date}{fg=white}
-\setbeamercolor{framesubtitle}{fg=white}
+\item[\color{black}\scalebox{0.9}{\textbullet}]}
 
 \begin{document}
 
@@ -71,12 +58,73 @@ search screening costs
 \end{frame}
 
 \begin{frame}{}
+\begin{animateinline}[autoplay]{2}
+\begin{minipage}[c]{1\textwidth}
 \begin{center}
 \Large
-\begin{figure}[H] \centering \includegraphics[width=50mm]{people100.jpg} \end{figure}
+
+\begin{figure}[H] \centering \includegraphics[width=100mm]{people_animation_1.png} \end{figure}
 
 100 people
 \end{center}
+\end{minipage}
+\end{animateinline}
+\end{frame}
+
+\begin{frame}{}
+\begin{animateinline}[autoplay]{10}
+\multiframe{11}{i=1+1}{
+\begin{minipage}[c]{1\textwidth}
+\begin{center}
+\Large
+
+\begin{figure}[H] \centering \includegraphics[width=100mm]{people_animation_\i.png} \end{figure}
+
+100 people
+\end{center}
+\end{minipage}
+}
+\newframe
+\multiframe{9}{i=11+1}{
+\begin{minipage}[c]{1\textwidth}
+\begin{center}
+\Large
+
+\begin{figure}[H] \centering \includegraphics[width=100mm]{people_animation_\i.png} \end{figure}
+
+1,000 people
+\end{center}
+\end{minipage}
+}
+\end{animateinline}
+\end{frame}
+
+\begin{frame}{}
+\begin{animateinline}[autoplay]{10}
+\multiframe{5}{i=1+1}{
+\begin{minipage}[c]{1\textwidth}
+\begin{center}
+\Large
+
+\begin{figure}[H] \centering \includegraphics[width=100mm]{people_animation_2_\i.png} \end{figure}
+
+1,000 people
+\end{center}
+\end{minipage}
+}
+\newframe
+\multiframe{6}{i=6+1}{
+\begin{minipage}[c]{1\textwidth}
+\begin{center}
+\Large
+
+\begin{figure}[H] \centering \includegraphics[width=100mm]{people_animation_2_\i.png} \end{figure}
+
+100,000 people
+\end{center}
+\end{minipage}
+}
+\end{animateinline}
 \end{frame}
 
 \end{document}
