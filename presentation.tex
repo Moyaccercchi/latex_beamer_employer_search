@@ -1,8 +1,10 @@
 \documentclass[12pt]{beamer}
+\usepackage[english]{babel}
 \usepackage{datetime}
 \usepackage{tikz}
 \usepackage{animate}
 \usepackage{color}
+\usepackage{colortbl}
 \usetheme{Berlin}
 
 \title[Employer Search and Screening in an Online Labor Market]{Employer Search and\\Screening in an Online\\Labor Market}
@@ -20,19 +22,44 @@
 %gets rid of navigation symbols
 \setbeamertemplate{navigation symbols}{}
 
-%our items
-\newcommand*\ouritem{%
-\item[\color{black}\scalebox{0.9}{\textbullet}]}
+\tikzstyle{every picture}+=[remember picture]
+\tikzstyle{na} = [baseline=-.5ex]
+
+\definecolor{myred}{RGB}{166,0,0}
+\definecolor{gray100}{RGB}{0,0,0}
+\definecolor{gray75}{RGB}{64,64,64}
+\definecolor{gray50}{RGB}{128,128,128}
+\definecolor{gray25}{RGB}{192,192,192}
+\definecolor{gray0}{RGB}{255,255,255}
+\definecolor{red100}{RGB}{255,0,0}
+\definecolor{red75}{RGB}{255,64,64}
+\definecolor{red50}{RGB}{255,128,128}
+\definecolor{red25}{RGB}{255,192,192}
+\definecolor{red0}{RGB}{255,255,255}
 
 %our imaginary items - that is, placeholders for items
 \newcommand*\imgitem{%
 \item[\color{white}\scalebox{0.9}{\textbullet}]}
 
-\tikzstyle{every picture}+=[remember picture]
-\tikzstyle{na} = [baseline=-.5ex]
+\newcommand*\imgitemtf{%
+\item[\color{gray25}\scalebox{0.9}{\textbullet}]}
 
-\definecolor{myred}{RGB}{166,0,0}
+\newcommand*\imgitemfo{%
+\item[\color{gray50}\scalebox{0.9}{\textbullet}]}
+
+\newcommand*\imgitemsf{%
+\item[\color{gray75}\scalebox{0.9}{\textbullet}]}
+
+%our items
+\newcommand*\ouritem{%
+\item[\color{black}\scalebox{0.9}{\textbullet}]}
+
+%our items
+\newcommand*\variitem[1]{%
+\item[\color{#1}\scalebox{0.9}{\textbullet}]}
+
 \newcounter{boxes}
+\setcounter{boxes}{1}
 
 \newcommand\redbox[3]{%
 \stepcounter{boxes}%
@@ -75,55 +102,58 @@ oDesk Research
 \end{frame}
 
 \begin{frame}{}
+\begin{animateinline}[autoplay]{10}
+\multiframe{5}{i=0+25}{
+\begin{minipage}{\textwidth}
 \begin{center}
-Matching markets have
+\textcolor{gray\i}{Matching markets have}
 
-search screening costs
+\textcolor{gray\i}{search screening costs}
 \end{center}
-\end{frame}
-
-\begin{frame}{}
-\begin{animateinline}[autoplay]{2}
-\begin{minipage}{\textwidth}
-\Large
-\begin{itemize}
-\imgitem \textcolor{white}{What \emph{are} my options?}
-
-\imgitem \textcolor{white}{\emph{How good} is each option for me?}
-\end{itemize}
 \end{minipage}
-\newframe
-\begin{minipage}{\textwidth}
-\Large
-\begin{itemize}
-\ouritem What \emph{are} my options?
-
-\imgitem \textcolor{white}{\emph{How good} is each option for me?}
-\end{itemize}
-\end{minipage}
-\newframe
-\begin{minipage}{\textwidth}
-\Large
-\begin{itemize}
-\ouritem What \emph{are} my options?
-
-\ouritem \emph{How good} is each option for me?
-\end{itemize}
-\end{minipage}
+}
 \end{animateinline}
 \end{frame}
 
 \begin{frame}{}
-\begin{animateinline}[autoplay]{2}
+\begin{animateinline}[autoplay]{10}
+\multiframe{5}{i=0+25}{
+\begin{minipage}{\textwidth}
+\Large
+\begin{itemize}
+\variitem{gray\i} \textcolor{gray\i}{What \emph{are} my options?}
+
+\imgitem \textcolor{white}{\emph{How good} is each option for me?}
+\end{itemize}
+\end{minipage}
+}
+\newframe
+\multiframe{5}{i=0+25}{
+\begin{minipage}{\textwidth}
+\Large
+\begin{itemize}
+\ouritem What \emph{are} my options?
+
+\variitem{gray\i} \textcolor{gray\i}{\emph{How good} is each option for me?}
+\end{itemize}
+\end{minipage}
+}
+\end{animateinline}
+\end{frame}
+
+\begin{frame}{}
+\begin{animateinline}[autoplay]{10}
+\multiframe{5}{i=0+25}{
 \begin{minipage}[c]{1\textwidth}
 \begin{center}
 \Large
 
 \begin{figure}[H] \centering \includegraphics[width=100mm]{people_animation_1.png} \end{figure}
 
-100 people
+\textcolor{gray\i}{100 people}
 \end{center}
 \end{minipage}
+}
 \end{animateinline}
 \end{frame}
 
@@ -212,12 +242,14 @@ search screening costs
 \end{frame}
 
 \begin{frame}{}
+\begin{animateinline}[autoplay]{10}
+\multiframe{5}{i=0+25}{
+\begin{minipage}{\textwidth}
+\vspace{1 mm}
 \begin{center}
-Algorithmic approach
+\textcolor{gray\i}{Algorithmic approach}
 \end{center}
 
-\begin{animateinline}[autoplay]{2}
-\begin{minipage}{\textwidth}
 \Large
 \begin{itemize}
 \imgitem \textcolor{white}{Infer nature of the work}
@@ -227,53 +259,76 @@ Algorithmic approach
 \imgitem \textcolor{white}{Sort matching candidates by some weighted combination of ability \& availability}
 \end{itemize}
 \end{minipage}
+}
 \newframe
+\multiframe{5}{i=0+25}{
 \begin{minipage}{\textwidth}
+\vspace{1 mm}
+\begin{center}
+Algorithmic approach
+\end{center}
+
 \Large
 \begin{itemize}
-\ouritem Infer nature of the work
+\variitem{gray\i} \textcolor{gray\i}{Infer nature of the work}
 
 \imgitem \textcolor{white}{Find candidates with matching skills}
 
 \imgitem \textcolor{white}{Sort matching candidates by some weighted combination of ability \& availability}
 \end{itemize}
 \end{minipage}
+}
 \newframe
+\multiframe{5}{i=0+25}{
 \begin{minipage}{\textwidth}
+\vspace{1 mm}
+\begin{center}
+Algorithmic approach
+\end{center}
+
 \Large
 \begin{itemize}
 \ouritem Infer nature of the work
 
-\ouritem Find candidates with matching skills
+\variitem{gray\i} \textcolor{gray\i}{Find candidates with matching skills}
 
 \imgitem \textcolor{white}{Sort matching candidates by some weighted combination of ability \& availability}
 \end{itemize}
 \end{minipage}
+}
 \newframe
+\multiframe{5}{i=0+25}{
 \begin{minipage}{\textwidth}
+\vspace{1 mm}
+\begin{center}
+Algorithmic approach
+\end{center}
+
 \Large
 \begin{itemize}
 \ouritem Infer nature of the work
 
 \ouritem Find candidates with matching skills
 
-\ouritem Sort matching candidates by some weighted combination of ability \& availability
+\variitem{gray\i} \textcolor{gray\i}{Sort matching candidates by some weighted combination of ability \& availability}
 \end{itemize}
 \end{minipage}
+}
 \end{animateinline}
 \end{frame}
 
 \begin{frame}{}
+\begin{animateinline}[autoplay]{10}
+\multiframe{5}{i=0+25}{
+\begin{minipage}{\textwidth}
+\vspace{1 mm}
 \begin{center}
-What segments matching
+\textcolor{gray\i}{What segments matching}
 
-markets traditionally?
+\textcolor{gray\i}{markets traditionally?}
 \end{center}
 
-\begin{animateinline}[autoplay]{2}
-\begin{minipage}{\textwidth}
 \Large
-\vspace{1 mm}
 \begin{itemize}
 \imgitem \textcolor{white}{Geography}
 
@@ -286,12 +341,20 @@ markets traditionally?
 \begin{tikzpicture}[overlay]
 \end{tikzpicture}
 \end{minipage}
+}
 \newframe
+\multiframe{5}{i=0+25}{
 \begin{minipage}{\textwidth}
-\Large
 \vspace{1 mm}
+\begin{center}
+What segments matching
+
+markets traditionally?
+\end{center}
+
+\Large
 \begin{itemize}
-\ouritem Geography
+\variitem{gray\i} \textcolor{gray\i}{Geography}
 
 \imgitem \textcolor{white}{Time}
 
@@ -302,14 +365,22 @@ markets traditionally?
 \begin{tikzpicture}[overlay]
 \end{tikzpicture}
 \end{minipage}
+}
 \newframe
+\multiframe{5}{i=0+25}{
 \begin{minipage}{\textwidth}
-\Large
 \vspace{1 mm}
+\begin{center}
+What segments matching
+
+markets traditionally?
+\end{center}
+
+\Large
 \begin{itemize}
 \ouritem Geography
 
-\ouritem Time
+\variitem{gray\i} \textcolor{gray\i}{Time}
 
 \imgitem \textcolor{white}{Costs of application}
 \end{itemize}
@@ -318,27 +389,41 @@ markets traditionally?
 \begin{tikzpicture}[overlay]
 \end{tikzpicture}
 \end{minipage}
+}
 \newframe
+\multiframe{5}{i=0+25}{
 \begin{minipage}{\textwidth}
-\Large
 \vspace{1 mm}
+\begin{center}
+What segments matching
+
+markets traditionally?
+\end{center}
+
+\Large
 \begin{itemize}
 \ouritem Geography
 
 \ouritem Time
 
-\ouritem Costs of application
+\variitem{gray\i} \textcolor{gray\i}{Costs of application}
 \end{itemize}
 
 \nointerlineskip
 \begin{tikzpicture}[overlay]
 \end{tikzpicture}
 \end{minipage}
+}
 \newframe[20]
 \begin{minipage}{\textwidth}
-\Large
 \vspace{1 mm}
+\begin{center}
+What segments matching
 
+markets traditionally?
+\end{center}
+
+\Large
 \begin{itemize}
 \ouritem \tikz[na] \node[coordinate] (geo1) {};G\tikz[na] \node[coordinate] (geo2) {};eography
 
@@ -354,9 +439,14 @@ markets traditionally?
 \end{minipage}
 \newframe
 \begin{minipage}{\textwidth}
-\Large
 \vspace{1 mm}
+\begin{center}
+What segments matching
 
+markets traditionally?
+\end{center}
+
+\Large
 \begin{itemize}
 \ouritem \tikz[na] \node[coordinate] (geo1) {};Ge\tikz[na] \node[coordinate] (geo2) {};ography
 
@@ -372,9 +462,14 @@ markets traditionally?
 \end{minipage}
 \newframe
 \begin{minipage}{\textwidth}
-\Large
 \vspace{1 mm}
+\begin{center}
+What segments matching
 
+markets traditionally?
+\end{center}
+
+\Large
 \begin{itemize}
 \ouritem \tikz[na] \node[coordinate] (geo1) {};Geo\tikz[na] \node[coordinate] (geo2) {};graphy
 
@@ -390,9 +485,14 @@ markets traditionally?
 \end{minipage}
 \newframe
 \begin{minipage}{\textwidth}
-\Large
 \vspace{1 mm}
+\begin{center}
+What segments matching
 
+markets traditionally?
+\end{center}
+
+\Large
 \begin{itemize}
 \ouritem \tikz[na] \node[coordinate] (geo1) {};Geog\tikz[na] \node[coordinate] (geo2) {};raphy
 
@@ -408,9 +508,14 @@ markets traditionally?
 \end{minipage}
 \newframe
 \begin{minipage}{\textwidth}
-\Large
 \vspace{1 mm}
+\begin{center}
+What segments matching
 
+markets traditionally?
+\end{center}
+
+\Large
 \begin{itemize}
 \ouritem \tikz[na] \node[coordinate] (geo1) {};Geogr\tikz[na] \node[coordinate] (geo2) {};aphy
 
@@ -426,9 +531,14 @@ markets traditionally?
 \end{minipage}
 \newframe
 \begin{minipage}{\textwidth}
-\Large
 \vspace{1 mm}
+\begin{center}
+What segments matching
 
+markets traditionally?
+\end{center}
+
+\Large
 \begin{itemize}
 \ouritem \tikz[na] \node[coordinate] (geo1) {};Geogra\tikz[na] \node[coordinate] (geo2) {};phy
 
@@ -444,9 +554,14 @@ markets traditionally?
 \end{minipage}
 \newframe
 \begin{minipage}{\textwidth}
-\Large
 \vspace{1 mm}
+\begin{center}
+What segments matching
 
+markets traditionally?
+\end{center}
+
+\Large
 \begin{itemize}
 \ouritem \tikz[na] \node[coordinate] (geo1) {};Geograp\tikz[na] \node[coordinate] (geo2) {};hy
 
@@ -462,9 +577,14 @@ markets traditionally?
 \end{minipage}
 \newframe
 \begin{minipage}{\textwidth}
-\Large
 \vspace{1 mm}
+\begin{center}
+What segments matching
 
+markets traditionally?
+\end{center}
+
+\Large
 \begin{itemize}
 \ouritem \tikz[na] \node[coordinate] (geo1) {};Geograph\tikz[na] \node[coordinate] (geo2) {};y
 
@@ -480,9 +600,14 @@ markets traditionally?
 \end{minipage}
 \newframe
 \begin{minipage}{\textwidth}
-\Large
 \vspace{1 mm}
+\begin{center}
+What segments matching
 
+markets traditionally?
+\end{center}
+
+\Large
 \begin{itemize}
 \ouritem \tikz[na] \node[coordinate] (geo1) {};Geography\tikz[na] \node[coordinate] (geo2) {};
 
@@ -496,19 +621,25 @@ markets traditionally?
 \draw[line width=2pt,red] (geo1) edge [out=0, in=180] (geo2);
 \end{tikzpicture}
 \end{minipage}
-\newframe
+\newframe[10]
+\multiframe{5}{i=0+25}{
 \begin{minipage}{\textwidth}
-\Large
 \vspace{1 mm}
+\begin{center}
+What segments matching
 
+markets traditionally?
+\end{center}
+
+\Large
 \begin{itemize}
 \ouritem \tikz[na] \node[coordinate] (geo1) {};Geography\tikz[na] \node[coordinate] (geo2) {}; 
 \invbox{
 \small
-\textcolor{red}{No inherent geographic constraints}}{(0.3\textwidth,0.025\textheight)}
+\textcolor{red\i}{No inherent geographic constraints}}{(0.3\textwidth,0.025\textheight)}
 \invbox{
 \small
-\textcolor{red}{in online labor markets}}{(0.3\textwidth,-0.025\textheight)}
+\textcolor{red\i}{in online labor markets}}{(0.3\textwidth,-0.025\textheight)}
 
 \ouritem Time
 
@@ -520,6 +651,521 @@ markets traditionally?
 \draw[line width=2pt,red] (geo1) edge [out=0, in=180] (geo2);
 \end{tikzpicture}
 \end{minipage}
+}
+\end{animateinline}
+\end{frame}
+
+\begin{frame}{}
+\begin{animateinline}[autoplay]{10}
+\multiframe{5}{i=0+25}{
+\begin{minipage}{\textwidth}
+\vspace{1 mm}
+\begin{center}
+\textcolor{gray\i}{Search and scale}
+\end{center}
+
+\Large
+\begin{itemize}
+\imgitem \textcolor{white}{Effects of scale}
+
+\begin{itemize}
+\Large
+\imgitem \textcolor{white}{Plus: More space for higher-quality matches}
+
+\imgitem \textcolor{white}{Negative: The {\grqq}what are'' and {\grqq}how good are'' questions about options get harder with scale}
+\end{itemize}
+\end{itemize}
+\end{minipage}
+}
+\newframe
+\multiframe{5}{i=0+25}{
+\begin{minipage}{\textwidth}
+\vspace{1 mm}
+\begin{center}
+Search and scale
+\end{center}
+
+\Large
+\begin{itemize}
+\variitem{gray\i} \textcolor{gray\i}{Effects of scale}
+
+\begin{itemize}
+\Large
+\imgitem \textcolor{white}{Plus: More space for higher-quality matches}
+
+\imgitem \textcolor{white}{Negative: The {\grqq}what are'' and {\grqq}how good are'' questions about options get harder with scale}
+\end{itemize}
+\end{itemize}
+\end{minipage}
+}
+\newframe
+\multiframe{5}{i=0+25}{
+\begin{minipage}{\textwidth}
+\vspace{1 mm}
+\begin{center}
+Search and scale
+\end{center}
+
+\Large
+\begin{itemize}
+\ouritem Effects of scale
+
+\begin{itemize}
+\Large
+\variitem{gray\i} \textcolor{gray\i}{Plus: More space for higher-quality matches}
+
+\imgitem \textcolor{white}{Negative: The {\grqq}what are'' and {\grqq}how good are'' questions about options get harder with scale}
+\end{itemize}
+\end{itemize}
+\end{minipage}
+}
+\newframe
+\multiframe{5}{i=0+25}{
+\begin{minipage}{\textwidth}
+\vspace{1 mm}
+\begin{center}
+Search and scale
+\end{center}
+
+\Large
+\begin{itemize}
+\ouritem Effects of scale
+
+\begin{itemize}
+\Large
+\ouritem Plus: More space for higher-quality matches
+
+\variitem{gray\i} \textcolor{gray\i}{Negative: The {\grqq}what are'' and {\grqq}how good are'' questions about options get harder with scale}
+\end{itemize}
+\end{itemize}
+\end{minipage}
+}
+\end{animateinline}
+\end{frame}
+
+\begin{frame}{}
+\begin{animateinline}[autoplay]{10}
+\multiframe{5}{i=0+25}{
+\begin{minipage}{\textwidth}
+\Large
+\vspace{1 mm}
+\begin{itemize}
+\variitem{gray\i} \textcolor{gray\i}{To what extent can we subsidize search and screening algorithmically, and is this subsidization effective?}
+\end{itemize}
+\end{minipage}
+}
+\end{animateinline}
+\end{frame}
+
+\begin{frame}{}
+\begin{animateinline}[autoplay]{10}
+\multiframe{5}{i=0+25}{
+\begin{minipage}{\textwidth}
+\begin{center}
+\vspace{1 mm}
+\textcolor{gray\i}{Can these costs be reduced by third-parties?}
+\end{center}
+\end{minipage}
+}
+\end{animateinline}
+\end{frame}
+
+\begin{frame}{}
+\begin{animateinline}[autoplay]{10}
+\multiframe{5}{i=0+25}{
+\begin{minipage}{\textwidth}
+\begin{center}
+\textcolor{gray\i}{Labor market examples}
+\end{center}
+
+\Large
+\vspace{1 mm}
+\begin{itemize}
+\imgitem \textcolor{white}{Credentialing services}
+
+\imgitem \textcolor{white}{Unions}
+
+\imgitem \textcolor{white}{Information clearing-houses}
+
+\imgitem \textcolor{white}{Job-listing sites}
+
+\imgitem \textcolor{white}{Placement services}
+
+\begin{itemize}
+\Large
+\imgitem \textcolor{white}{E.g., counseling, recommendations}
+\end{itemize}
+\end{itemize}
+\end{minipage}
+}
+\newframe
+\multiframe{5}{i=0+25}{
+\begin{minipage}{\textwidth}
+\begin{center}
+Labor market examples
+\end{center}
+
+\Large
+\vspace{1 mm}
+\begin{itemize}
+\variitem{gray\i} \textcolor{gray\i}{Credentialing services}
+
+\imgitem \textcolor{white}{Unions}
+
+\imgitem \textcolor{white}{Information clearing-houses}
+
+\imgitem \textcolor{white}{Job-listing sites}
+
+\imgitem \textcolor{white}{Placement services}
+
+\begin{itemize}
+\Large
+\imgitem \textcolor{white}{E.g., counseling, recommendations}
+\end{itemize}
+\end{itemize}
+\end{minipage}
+}
+\newframe
+\multiframe{5}{i=0+25}{
+\begin{minipage}{\textwidth}
+\begin{center}
+Labor market examples
+\end{center}
+
+\Large
+\vspace{1 mm}
+\begin{itemize}
+\variitem{gray100} \textcolor{gray100}{Credentialing services}
+
+\variitem{gray\i} \textcolor{gray\i}{Unions}
+
+\imgitem \textcolor{white}{Information clearing-houses}
+
+\imgitem \textcolor{white}{Job-listing sites}
+
+\imgitem \textcolor{white}{Placement services}
+
+\begin{itemize}
+\Large
+\imgitem \textcolor{white}{E.g., counseling, recommendations}
+\end{itemize}
+\end{itemize}
+\end{minipage}
+}
+\newframe
+\multiframe{5}{i=0+25}{
+\begin{minipage}{\textwidth}
+\begin{center}
+Labor market examples
+\end{center}
+
+\Large
+\vspace{1 mm}
+\begin{itemize}
+\variitem{gray100} \textcolor{gray100}{Credentialing services}
+
+\variitem{gray100} \textcolor{gray100}{Unions}
+
+\variitem{gray\i} \textcolor{gray\i}{Information clearing-houses}
+
+\imgitem \textcolor{white}{Job-listing sites}
+
+\imgitem \textcolor{white}{Placement services}
+
+\begin{itemize}
+\Large
+\imgitem \textcolor{white}{E.g., counseling, recommendations}
+\end{itemize}
+\end{itemize}
+\end{minipage}
+}
+\newframe
+\multiframe{5}{i=0+25}{
+\begin{minipage}{\textwidth}
+\begin{center}
+Labor market examples
+\end{center}
+
+\Large
+\vspace{1 mm}
+\begin{itemize}
+\variitem{gray100} \textcolor{gray100}{Credentialing services}
+
+\variitem{gray100} \textcolor{gray100}{Unions}
+
+\variitem{gray100} \textcolor{gray100}{Information clearing-houses}
+
+\variitem{gray\i} \textcolor{gray\i}{Job-listing sites}
+
+\imgitem \textcolor{white}{Placement services}
+
+\begin{itemize}
+\Large
+\imgitem \textcolor{white}{E.g., counseling, recommendations}
+\end{itemize}
+\end{itemize}
+\end{minipage}
+}
+\newframe
+\multiframe{5}{i=0+25}{
+\begin{minipage}{\textwidth}
+\begin{center}
+Labor market examples
+\end{center}
+
+\Large
+\vspace{1 mm}
+\begin{itemize}
+\variitem{gray100} \textcolor{gray100}{Credentialing services}
+
+\variitem{gray100} \textcolor{gray100}{Unions}
+
+\variitem{gray100} \textcolor{gray100}{Information clearing-houses}
+
+\variitem{gray100} \textcolor{gray100}{Job-listing sites}
+
+\variitem{gray\i} \textcolor{gray\i}{Placement services}
+
+\begin{itemize}
+\Large
+\imgitem \textcolor{white}{E.g., counseling, recommendations}
+\end{itemize}
+\end{itemize}
+\end{minipage}
+}
+\newframe
+\multiframe{5}{i=0+25}{
+\begin{minipage}{\textwidth}
+\begin{center}
+Labor market examples
+\end{center}
+
+\Large
+\vspace{1 mm}
+\begin{itemize}
+\variitem{gray100} \textcolor{gray100}{Credentialing services}
+
+\variitem{gray100} \textcolor{gray100}{Unions}
+
+\variitem{gray100} \textcolor{gray100}{Information clearing-houses}
+
+\variitem{gray100} \textcolor{gray100}{Job-listing sites}
+
+\variitem{gray100} \textcolor{gray100}{Placement services}
+
+\begin{itemize}
+\Large
+\variitem{gray\i} \textcolor{gray\i}{E.g., counseling, recommendations}
+\end{itemize}
+\end{itemize}
+\end{minipage}
+}
+\end{animateinline}
+\end{frame}
+
+\begin{frame}{}
+\begin{animateinline}[autoplay]{10}
+\multiframe{5}{i=0+25}{
+\begin{minipage}{\textwidth}
+\begin{center}
+\vspace{1 mm}
+\textcolor{gray\i}{Main concern with any targeted assistance?}
+
+\textcolor{white}{\emph{Crowd-out}}
+\vspace{1 mm}
+\end{center}
+\end{minipage}
+}
+\newframe
+\multiframe{5}{i=0+25}{
+\begin{minipage}{\textwidth}
+\begin{center}
+\vspace{1 mm}
+Main concern with any targeted assistance?
+
+\textcolor{gray\i}{\emph{Crowd-out}}
+\vspace{1 mm}
+\end{center}
+\end{minipage}
+}
+\end{animateinline}
+\end{frame}
+
+\begin{frame}{}
+\begin{animateinline}[autoplay]{10}
+\multiframe{5}{i=0+25}{
+\begin{minipage}{\textwidth}
+\begin{center}
+\Large
+\textcolor{gray\i}{Two engineers, Alice \& Bob}
+
+\textcolor{gray0}{Two vacancies at Facebook \& Twitter}
+
+\textcolor{gray0}{Each has match-specific productivities}
+
+\textcolor{gray0}{Only one worker per vacancy}
+
+\textcolor{gray0}{We ignore bargaining}
+
+\vspace{10 mm}
+
+\begin{tabular}{!{\color{gray0}\vrule} c !{\color{gray0}\vrule} c !{\color{gray0}\vrule} c !{\color{gray0}\vrule}}
+\arrayrulecolor{gray0}\hline
+ & \textcolor{gray0}{Alice} & \textcolor{gray0}{Bob} \\
+\arrayrulecolor{gray0}\hline
+ \textcolor{gray0}{Twitter} & \textcolor{gray0}{8} & \textcolor{gray0}{12} \\
+\arrayrulecolor{gray0}\hline
+ \textcolor{gray0}{Facebook} & \textcolor{gray0}{10} & \textcolor{gray0}{20} \\
+\arrayrulecolor{gray0}\hline
+\end{tabular}
+\end{center}
+\end{minipage}
+}
+\newframe
+\multiframe{5}{i=0+25}{
+\begin{minipage}{\textwidth}
+\begin{center}
+\Large
+\textcolor{gray100}{Two engineers, Alice \& Bob}
+
+\textcolor{gray\i}{Two vacancies at Facebook \& Twitter}
+
+\textcolor{gray0}{Each has match-specific productivities}
+
+\textcolor{gray0}{Only one worker per vacancy}
+
+\textcolor{gray0}{We ignore bargaining}
+
+\vspace{10 mm}
+
+\begin{tabular}{!{\color{gray0}\vrule} c !{\color{gray0}\vrule} c !{\color{gray0}\vrule} c !{\color{gray0}\vrule}}
+\arrayrulecolor{gray0}\hline
+ & \textcolor{gray0}{Alice} & \textcolor{gray0}{Bob} \\
+\arrayrulecolor{gray0}\hline
+ \textcolor{gray0}{Twitter} & \textcolor{gray0}{8} & \textcolor{gray0}{12} \\
+\arrayrulecolor{gray0}\hline
+ \textcolor{gray0}{Facebook} & \textcolor{gray0}{10} & \textcolor{gray0}{20} \\
+\arrayrulecolor{gray0}\hline
+\end{tabular}
+\end{center}
+\end{minipage}
+}
+\newframe
+\multiframe{5}{i=0+25}{
+\begin{minipage}{\textwidth}
+\begin{center}
+\Large
+\textcolor{gray100}{Two engineers, Alice \& Bob}
+
+\textcolor{gray100}{Two vacancies at Facebook \& Twitter}
+
+\textcolor{gray\i}{Each has match-specific productivities}
+
+\textcolor{gray0}{Only one worker per vacancy}
+
+\textcolor{gray0}{We ignore bargaining}
+
+\vspace{10 mm}
+
+\begin{tabular}{!{\color{gray0}\vrule} c !{\color{gray0}\vrule} c !{\color{gray0}\vrule} c !{\color{gray0}\vrule}}
+\arrayrulecolor{gray0}\hline
+ & \textcolor{gray0}{Alice} & \textcolor{gray0}{Bob} \\
+\arrayrulecolor{gray0}\hline
+ \textcolor{gray0}{Twitter} & \textcolor{gray0}{8} & \textcolor{gray0}{12} \\
+\arrayrulecolor{gray0}\hline
+ \textcolor{gray0}{Facebook} & \textcolor{gray0}{10} & \textcolor{gray0}{20} \\
+\arrayrulecolor{gray0}\hline
+\end{tabular}
+\end{center}
+\end{minipage}
+}
+\newframe
+\multiframe{5}{i=0+25}{
+\begin{minipage}{\textwidth}
+\begin{center}
+\Large
+\textcolor{gray100}{Two engineers, Alice \& Bob}
+
+\textcolor{gray100}{Two vacancies at Facebook \& Twitter}
+
+\textcolor{gray100}{Each has match-specific productivities}
+
+\textcolor{gray\i}{Only one worker per vacancy}
+
+\textcolor{gray0}{We ignore bargaining}
+
+\vspace{10 mm}
+
+\begin{tabular}{!{\color{gray0}\vrule} c !{\color{gray0}\vrule} c !{\color{gray0}\vrule} c !{\color{gray0}\vrule}}
+\arrayrulecolor{gray0}\hline
+ & \textcolor{gray0}{Alice} & \textcolor{gray0}{Bob} \\
+\arrayrulecolor{gray0}\hline
+ \textcolor{gray0}{Twitter} & \textcolor{gray0}{8} & \textcolor{gray0}{12} \\
+\arrayrulecolor{gray0}\hline
+ \textcolor{gray0}{Facebook} & \textcolor{gray0}{10} & \textcolor{gray0}{20} \\
+\arrayrulecolor{gray0}\hline
+\end{tabular}
+\end{center}
+\end{minipage}
+}
+\newframe
+\multiframe{5}{i=0+25}{
+\begin{minipage}{\textwidth}
+\begin{center}
+\Large
+\textcolor{gray100}{Two engineers, Alice \& Bob}
+
+\textcolor{gray100}{Two vacancies at Facebook \& Twitter}
+
+\textcolor{gray100}{Each has match-specific productivities}
+
+\textcolor{gray100}{Only one worker per vacancy}
+
+\textcolor{gray\i}{We ignore bargaining}
+
+\vspace{10 mm}
+
+\begin{tabular}{!{\color{gray0}\vrule} c !{\color{gray0}\vrule} c !{\color{gray0}\vrule} c !{\color{gray0}\vrule}}
+\arrayrulecolor{gray0}\hline
+ & \textcolor{gray0}{Alice} & \textcolor{gray0}{Bob} \\
+\arrayrulecolor{gray0}\hline
+ \textcolor{gray0}{Twitter} & \textcolor{gray0}{8} & \textcolor{gray0}{12} \\
+\arrayrulecolor{gray0}\hline
+ \textcolor{gray0}{Facebook} & \textcolor{gray0}{10} & \textcolor{gray0}{20} \\
+\arrayrulecolor{gray0}\hline
+\end{tabular}
+\end{center}
+\end{minipage}
+}
+\newframe
+\multiframe{5}{i=0+25}{
+\begin{minipage}{\textwidth}
+\begin{center}
+\Large
+Two engineers, Alice \& Bob
+
+Two vacancies at Facebook \& Twitter
+
+Each has match-specific productivities
+
+Only one worker per vacancy
+
+We ignore bargaining
+
+\vspace{10 mm}
+
+\begin{tabular}{!{\color{gray\i}\vrule} c !{\color{gray\i}\vrule} c !{\color{gray\i}\vrule} c !{\color{gray\i}\vrule}}
+\arrayrulecolor{gray\i}\hline
+ & \textcolor{gray\i}{Alice} & \textcolor{gray\i}{Bob} \\
+\arrayrulecolor{gray\i}\hline
+ \textcolor{gray\i}{Twitter} & \textcolor{gray\i}{8} & \textcolor{gray\i}{12} \\
+\arrayrulecolor{gray\i}\hline
+ \textcolor{gray\i}{Facebook} & \textcolor{gray\i}{10} & \textcolor{gray\i}{20} \\
+\arrayrulecolor{gray\i}\hline
+\end{tabular}
+\end{center}
+\end{minipage}
+}
 \end{animateinline}
 \end{frame}
 
